@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 import { Plus, Trash2, Check } from "lucide-react";
 
@@ -17,34 +17,22 @@ interface Todo {
 export const TasksApp = () => {
   const [inputValue, setInputValue] = useState("");
   const [state, dispatched] = useReducer(taskReducer, getTasksInitialState());
+
+  useEffect(() => {
+    localStorage.setItem("task-state", JSON.stringify(state));
+  }, []);
   const addTodo = () => {
     if (inputValue.length === 0) return;
-
-    const newTodo: Todo = {
-      id: Date.now(),
-      text: inputValue.trim(),
-      completed: false,
-    };
-
-    setTodos([...todos, newTodo]);
-    // setTodos((prev) => [...prev, newTodo])
+    dispatched({ type: "ADD_TODO", payload: inputValue });
     setInputValue("");
   };
 
   const toggleTodo = (id: number) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, completed: !todo.completed };
-      }
-      return todo;
-    });
-
-    setTodos(updatedTodos);
+    dispatched({ type: "TOGGLE_TODO", payload: id });
   };
 
   const deleteTodo = (id: number) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
+    dispatched({ type: "DELETE_TODO", payload: id });
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

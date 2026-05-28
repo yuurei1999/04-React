@@ -20,7 +20,7 @@ createRoot(document.getElementById("root")!).render(
     {/* <TrafficLightWithEffectWithHook /> */}
     {/* <PokemonPage /> */}
     {/* <FocusScreen /> */}
-    {/* <TasksApp /> */}
-    <App />
+    <TasksApp />
+    {/* <App /> */}
   </StrictMode>,
 );
