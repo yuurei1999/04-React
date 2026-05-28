@@ -2,12 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // import { PokemonPage } from "./03-examples/PokemonPage";
 import "./index.css";
-import { FocusScreen } from "./04-useRef/FocusScreen";
-import { TrafficLightWithEffect } from "./02-useEffect/TrafficLightsWithEffect";
+import { TasksApp } from "./05-useReduce/TaskApp";
+import App from "./00-WebDebSimplified/useReducerExample";
+// import { FocusScreen } from "./04-useRef/FocusScreen";
+// import { TrafficLightWithEffect } from "./02-useEffect/TrafficLightsWithEffect";
 // import { TrafficLightWithEffectWithHook } from "./02-useEffect/TrafficLightsWithEffectWithHook";
 // import { TrafficLight } from "./01-useState/TrafficLights";
 // import { HookApp } from "./HookApp";
-import { TrafficLight } from "./01-useState/TrafficLights";
+// import { TrafficLight } from "./01-useState/TrafficLights";
 // import { TrafficLightWithEffect } from "./02-useEffect/TrafficLightsWithEffect";
 
 createRoot(document.getElementById("root")!).render(
@@ -17,6 +19,8 @@ createRoot(document.getElementById("root")!).render(
     {/* <TrafficLightWithEffect /> */}
     {/* <TrafficLightWithEffectWithHook /> */}
     {/* <PokemonPage /> */}
-    <FocusScreen />
+    {/* <FocusScreen /> */}
+    {/* <TasksApp /> */}
+    <App />
   </StrictMode>,
 );
