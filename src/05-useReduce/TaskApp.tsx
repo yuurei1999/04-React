@@ -19,8 +19,8 @@ export const TasksApp = () => {
   const [state, dispatched] = useReducer(taskReducer, getTasksInitialState());
 
   useEffect(() => {
-    localStorage.setItem("task-state", JSON.stringify(state));
-  }, []);
+    localStorage.setItem("tasks-state", JSON.stringify(state));
+  }, [state]);
   const addTodo = () => {
     if (inputValue.length === 0) return;
     dispatched({ type: "ADD_TODO", payload: inputValue });
@@ -36,7 +36,6 @@ export const TasksApp = () => {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    console.log({ key: e.key });
     if (e.key === "Enter") {
       addTodo();
     }
